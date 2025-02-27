@@ -145,7 +145,7 @@ export async function normalizeOptions(
   // If not explicitly set, default to the Node.js process argument
   const preserveSymlinks =
     options.preserveSymlinks ?? process.execArgv.includes('--preserve-symlinks');
-
+  context.logger.warn('Using local build systems...');
   // Setup base paths based on workspace root and project information
   const workspaceRoot = preserveSymlinks
     ? context.workspaceRoot
