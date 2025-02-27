@@ -60,6 +60,9 @@ export async function executeBuild(
   // TODO: Consider integrating into watch mode. Would require full rebuild on target changes.
   const browsers = getSupportedBrowsers(projectRoot, context.logger);
 
+  context.logger.warn('Using local build systems...');
+  context.logger.warn('Using local build systems...');
+
   // Load active translations if inlining
   // TODO: Integrate into watch mode and only load changed translations
   if (i18nOptions.shouldInline) {
@@ -126,7 +129,7 @@ export async function executeBuild(
     const componentResults = await componentStyleBundler.bundleAllFiles(true, true);
     bundlingResult = BundlerContext.mergeResults([bundlingResult, ...componentResults]);
   }
-
+  context.logger.warn('Not optimizing chunks...');
   if (options.optimizationOptions.scripts && shouldOptimizeChunks) {
     const { optimizeChunks } = await import('./chunk-optimizer');
     bundlingResult = await profileAsync('OPTIMIZE_CHUNKS', () =>

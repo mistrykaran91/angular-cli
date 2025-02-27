@@ -63,7 +63,11 @@
     "webpack-subresource-integrity": "5.1.0"
   },
   "optionalDependencies": {
-    "esbuild": "0.24.0"
+    "esbuild": "0.24.0",
+    "@angular/build": "^19.0.0",
+    "rxjs": "7.8.1",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "^4.1.0"
   },
   "devDependencies": {
     "undici": "6.21.0"

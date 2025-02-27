@@ -99,7 +99,7 @@ export async function optimizeChunks(
         },
       ],
     });
-
+    console.log('Using this one....APPLICATION');
     const result = await bundle.generate({
       compact: true,
       sourcemap,

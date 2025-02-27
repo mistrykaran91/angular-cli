@@ -60,6 +60,7 @@ ts_project(
     module_name = "@angular/build",
     deps = [
         "//:root_modules/@ampproject/remapping",
+        "//:root_modules/@angular/build",
         "//:root_modules/@angular/common",
         "//:root_modules/@angular/compiler",
         "//:root_modules/@angular/compiler-cli",
@@ -95,8 +96,11 @@ ts_project(
         "//:root_modules/piscina",
         "//:root_modules/postcss",
         "//:root_modules/rollup",
+        "//:root_modules/rxjs",
         "//:root_modules/sass",
         "//:root_modules/semver",
+        "//:root_modules/ts-node",
+        "//:root_modules/tsconfig-paths",
         "//:root_modules/tslib",
         "//:root_modules/typescript",
         "//:root_modules/vite",
@@ -113,10 +117,14 @@ ts_project(
     ),
     deps = [
         ":build_rjs",
+        "//:root_modules/@angular/build",
         "//:root_modules/@angular/compiler-cli",
         "//:root_modules/@babel/core",
         "//:root_modules/@types/jasmine",
         "//:root_modules/prettier",
+        "//:root_modules/rxjs",
+        "//:root_modules/ts-node",
+        "//:root_modules/tsconfig-paths",
         "//:root_modules/typescript",
         "//packages/angular/build/private:private_rjs",
         "//packages/angular_devkit/core:core_rjs",
@@ -156,6 +164,9 @@ ts_project(
         "//:root_modules/typescript",
         "//:root_modules/zone.js",
         "//:root_modules/buffer",
+        "//:root_modules/@angular/build",
+        "//:root_modules/ts-node",
+        "//:root_modules/tsconfig-paths",
     ],
 )
 
@@ -191,6 +202,9 @@ ts_project(
         "//:root_modules/typescript",
         "//:root_modules/zone.js",
         "//:root_modules/buffer",
+        "//:root_modules/@angular/build",
+        "//:root_modules/ts-node",
+        "//:root_modules/tsconfig-paths",
     ],
 )
 

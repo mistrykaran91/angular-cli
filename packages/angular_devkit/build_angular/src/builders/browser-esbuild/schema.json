@@ -212,6 +212,35 @@
       },
       "default": []
     },
+    "plugins": {
+      "type": "array",
+      "description": "A list of paths to ESBuild plugins",
+      "default": [],
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "options": {
+                "type": "object"
+              }
+            },
+            "required": ["path"]
+          }
+        ],
+        "uniqueItems": true
+      }
+    },
+    "indexHtmlTransformer": {
+      "description": "A path to the file with index.html transform function",
+      "type": "string"
+    },
     "outputPath": {
       "type": "string",
       "description": "The full path for the new output directory, relative to the current workspace."

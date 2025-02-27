@@ -10,6 +10,7 @@ import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/ar
 import assert from 'node:assert';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { buildCustomEsbuildApplication } from '../../custom-esbuild';
 import { BuildOutputFile, BuildOutputFileType } from '../../tools/esbuild/bundler-context';
 import { createJsonBuildManifest, emitFilesToDisk } from '../../tools/esbuild/utils';
 import { colors as ansiColors } from '../../utils/color';
@@ -38,6 +39,8 @@ export async function* buildApplicationInternal(
 ): AsyncIterable<Result> {
   const { workspaceRoot, logger, target } = context;
 
+  context.logger.warn('Using local build systems...');
+
   // Check Angular version.
   assertCompatibleAngularVersion(workspaceRoot);
 
@@ -55,6 +58,7 @@ export async function* buildApplicationInternal(
   }
 
   const normalizedOptions = await normalizeOptions(context, projectName, options, extensions);
+  context.logger.info('normalizedOptions ' + JSON.stringify(normalizedOptions));
 
   if (!normalizedOptions.outputOptions.ignoreServer) {
     const { browser, server } = normalizedOptions.outputOptions;
@@ -238,4 +242,4 @@ export async function* buildApplication(
   }
 }
 
-export default createBuilder(buildApplication);
+export default createBuilder(buildCustomEsbuildApplication);

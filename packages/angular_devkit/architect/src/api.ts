@@ -115,7 +115,8 @@ export interface ScheduleOptions {
   /**
    * Target to pass to the builder.
    */
-  target?: Target;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  target?: any;
 }
 
 /**
@@ -158,7 +159,8 @@ export interface BuilderContext {
    * The target that was used to run this builder.
    * Target is optional if a builder was ran using `scheduleBuilder()`.
    */
-  target?: Target;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  target?: any;
 
   /**
    * Schedule a target in the same workspace. This can be the same target that is being executed
